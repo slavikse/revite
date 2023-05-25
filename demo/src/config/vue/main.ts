@@ -8,9 +8,7 @@ export default defineConfig({
   reactivity: {
     service: VueReactivityService,
   },
-  packages: [
-    import('/~/packages/ViewsPackage'),
-  ],
+  packages: [import('/~/packages/ViewsPackage')],
   providers: [
     import('/~/providers/EventServiceProvider'),
     import('/~/services/render/RenderServiceProvider'),
@@ -20,6 +18,7 @@ export default defineConfig({
     import('/~/services/ui/UiServiceProvider'),
     import('/~/services/notes/NotesServiceProvider'),
     import('/~/services/notify/NotifyServiceProvider'),
+    import('/~/services/test/VueTestServiceProvider'),
   ],
   config: {
     router: {
