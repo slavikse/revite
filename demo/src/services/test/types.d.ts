@@ -1,9 +1,14 @@
 declare namespace Service {
   namespace Test {
-    type Contract = import('./TestService').TestService
+    type TestService = import('./TestService').TestService
+    type TestServiceContract = import('./TestServiceContract').TestServiceContract
 
     interface Title {
       name: string
+    }
+
+    interface Config {
+      service: Revite.ImportConstructor<TestServiceContract>
     }
   }
 }

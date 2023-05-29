@@ -1,7 +1,12 @@
 <script lang="ts" setup>
-import { defineProps } from 'vue'
+import { defineProps, defineEmits, onMounted } from 'vue'
 
-const props = defineProps(['title'])
+const props = defineProps<{ title: string }>()
+const emits = defineEmits(['titleMounted'])
+
+onMounted(() => {
+  emits('titleMounted')
+})
 </script>
 
 <template>

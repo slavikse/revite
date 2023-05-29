@@ -6,7 +6,8 @@ import { TestState } from './TestState'
 export class VueTestViewProvider extends ServiceProvider {
   register(ctx: RegisterContext): void {
     ctx.bind(TestState).to({
-      reactive: true,
+      reactive: false,
+      singleton: true,
       async factory({ Service }) {
         const testService = await ctx.resolve(TestService)
 

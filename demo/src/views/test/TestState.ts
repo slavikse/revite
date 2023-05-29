@@ -1,7 +1,7 @@
 export class TestState {
   constructor(
     private options: {
-      testService: Service.Test.Contract
+      testService: Service.Test.TestService
     },
   ) {}
 

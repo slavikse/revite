@@ -18,7 +18,7 @@ export default defineConfig({
     import('/~/services/ui/UiServiceProvider'),
     import('/~/services/notes/NotesServiceProvider'),
     import('/~/services/notify/NotifyServiceProvider'),
-    import('/~/services/test/VueTestServiceProvider'),
+    import('/~/services/test/TestServiceProvider'),
   ],
   config: {
     router: {
@@ -33,5 +33,8 @@ export default defineConfig({
     auth: {
       service: () => import('/~/services/auth/versions/MockLoggedAuthService'),
     } as Service.Auth.Config,
+    test: {
+      service: () => import('/~/services/test/versions/MockFetchButtonVersionsService'),
+    } as Service.Test.Config,
   },
 })
