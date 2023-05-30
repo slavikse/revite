@@ -18,5 +18,5 @@ function getComponentPath(resolve: (arg0: string) => void): void {
   // "получено с сервера" - строка сразу будет с цифрой?
   const componentPath = `/~/dynamicComponents/buttons/button-basic/versions/button-basic-v${version}.vue`
 
-  setTimeout(() => resolve(componentPath), 1000)
+  resolve(componentPath)
 }
