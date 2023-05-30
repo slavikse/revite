@@ -11,9 +11,9 @@ export class VueHomeViewProvider extends ServiceProvider {
       async factory({ Service }) {
         const dashboardService = await ctx.resolve(DashboardService)
 
-        return () => new Service({
+        return () => new Service(
           dashboardService,
-        })
+        )
       },
     })
   }

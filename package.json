@@ -4,11 +4,13 @@
   "license": "MIT",
   "scripts": {
     "demo:vue": "cross-env APP_CONFIG=vue vite --config demo/vite.config.ts",
+    "demo:vue:build": "cross-env APP_CONFIG=vue vite build --config demo/vite.config.ts",
     "build": "tsc --project tsconfig.release.json",
     "test:unit": "vite-jest --no-cache",
     "release:prepare": "node --experimental-json-modules scripts/pre-release.mjs",
     "release": "semantic-release",
-    "typecheck": "vue-tsc --noEmit -p tsconfig.json"
+    "typecheck": "vue-tsc --noEmit -p tsconfig.json",
+    "lint": "eslint *.*"
   },
   "contributors": [
     "Roman Tebenkov <iteam4u@ya.ru>"

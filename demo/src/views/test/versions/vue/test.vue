@@ -3,7 +3,7 @@ import { revite } from 'revite'
 import { onMounted, ref } from 'vue'
 import { TestState } from '/~/views/test'
 import TitleComponent from './components/title.vue'
-import ButtonBasicComponent from '/~/dynamicComponents/buttons/button-basic/button-basic.vue'
+import ButtonBasicComponent from '/~/dynamicComponents/buttons/button-basic/button-basic'
 
 const title = ref('')
 
@@ -29,6 +29,8 @@ function titleMounted(): void {
       @title-mounted="titleMounted"
     />
 
-    <button-basic-component />
+    <button-basic-component>
+      sdsds
+    </button-basic-component>
   </div>
 </template>
