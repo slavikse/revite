@@ -2,7 +2,7 @@ import { BeforeBootContext, RegisterContext, ServiceProvider } from 'revite'
 import { RouterServiceContract } from '/~/services/router'
 import { TestService } from '/~/services/test'
 import { TestState } from './TestState'
-import {UiService} from "/~/services/ui";
+import { UiService } from '/~/services/ui'
 
 export class VueTestViewProvider extends ServiceProvider {
   register(ctx: RegisterContext): void {
@@ -12,7 +12,7 @@ export class VueTestViewProvider extends ServiceProvider {
       async factory({ Service }) {
         const testService = await ctx.resolve(TestService)
 
-        return () => new Service({ testService })
+        return () => new Service(testService)
       },
     })
   }

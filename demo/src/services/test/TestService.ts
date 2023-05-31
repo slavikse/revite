@@ -1,15 +1,11 @@
 export class TestService {
-  private content: {
-    title: Service.Test.Title
-  } = {
-    title: { name: '' },
+  private iconName = ''
+
+  get getIconName(): string {
+    return this.iconName
   }
 
-  get titleName(): string {
-    return this.content.title.name
-  }
-
-  registerTitle(title: Service.Test.Title): void {
-    this.content.title = title
+  registerIcon(name: string): void {
+    this.iconName = name
   }
 }

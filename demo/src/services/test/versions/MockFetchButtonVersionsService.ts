@@ -1,15 +1,17 @@
+import type { Component } from 'vue'
 import { TestServiceContract } from '../TestServiceContract'
 
 export class MockFetchButtonVersionsService extends TestServiceContract {
-  components = new Map<string, any>()
+  // eslint-disable-next-line func-call-spacing
+  components = new Map<string, () => Component>()
 
-  async registerComponents(components: Record<string, any>): Promise<void> {
-    Object.keys(components).forEach(key => {
+  registerComponents(components: Record<string, () => Component>): void {
+    Object.keys(components).forEach((key) => {
       this.components.set(key, components[key])
     })
   }
 
-  getComponent(name) {
-    return this.components.get(name)
+  getComponent(version: string): () => Component {
+    return this.components.get(version) as () => Component
   }
 }

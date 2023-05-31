@@ -1,15 +1,11 @@
 export class TestState {
-  constructor(
-    private options: {
-      testService: Service.Test.TestService
-    },
-  ) {}
+  constructor(private testService: Service.Test.TestService) {}
 
-  get title(): string {
-    return this.options.testService.titleName
+  get getIconName(): string {
+    return this.testService.getIconName
   }
 
-  registerTitle(title: string): void {
-    this.options.testService.registerTitle({ name: title })
+  registerIcon(name: string): void {
+    this.testService.registerIcon(name)
   }
 }

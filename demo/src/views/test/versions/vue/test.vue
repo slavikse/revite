@@ -1,36 +1,35 @@
 <script lang="ts" setup>
 import { revite } from 'revite'
-import { onMounted, ref } from 'vue'
+import { onMounted, shallowRef } from 'vue'
 import { TestState } from '/~/views/test'
-import TitleComponent from './components/title.vue'
+// import TitleComponent from './components/title.vue'
 import ButtonBasicComponent from '/~/dynamicComponents/buttons/button-basic/button-basic'
 
-const title = ref('')
+const state = shallowRef<TestState>()
 
 onMounted(async () => {
-  const state = await revite.resolve(TestState)
-
-  state.registerTitle('заголовок введённый и отображён через систему revite!')
-
-  title.value = state.title
+  state.value = await revite.resolve(TestState)
+  state.value.registerIcon('home')
 })
 
-function titleMounted(): void {
-  // console.log('titleMounted')
-}
+// function titleMounted(value: number): void {
+//   console.log('titleMounted', value)
+// }
 </script>
 
 <template>
-  <div>
-    <div>{{ title }}</div>
-
-    <title-component
+  <div v-if="state">
+    <!-- <title-component
       title="test"
       @title-mounted="titleMounted"
-    />
+    /> -->
 
     <button-basic-component>
-      sdsds
+      <template #icon>
+        <base-icon
+          :name="state.getIconName"
+        />
+      </template>
     </button-basic-component>
   </div>
 </template>

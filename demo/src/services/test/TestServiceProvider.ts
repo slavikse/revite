@@ -1,4 +1,4 @@
-import { BootContext, RegisterContext, ServiceProvider, resolveImport } from 'revite'
+import { BootContext, RegisterContext, ServiceProvider } from 'revite'
 import { TestService, TestServiceContract } from '/~/services/test'
 
 export class TestServiceProvider extends ServiceProvider {
@@ -17,9 +17,11 @@ export class TestServiceProvider extends ServiceProvider {
 
   async beforeBoot(ctx: BootContext) {
     const testService = await ctx.resolve(TestServiceContract)
+    const buttonBasicPath = '/~/dynamicComponents/buttons/button-basic/versions/button-basic'
 
     testService.registerComponents({
-      button: () => import('/~/dynamicComponents/buttons/button-basic/versions/button-basic-v2.vue'),
+      buttonDefault: () => import(`${buttonBasicPath}-v1.vue`),
+      buttonGosuslugi: () => import(`${buttonBasicPath}-v2.vue`),
     })
   }
 }

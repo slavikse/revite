@@ -2,16 +2,18 @@
 import { onMounted } from 'vue'
 
 onMounted(() => {
-  console.log('onMounted v1')
+  console.log('onMounted dynamic button v1')
 })
 </script>
 
 <template>
-  <button>Кнопка v1</button>
-</template>
+  <div class="flex">
+    <div class="w-6 h-6">
+      <slot name="icon" />
+    </div>
 
-<style scoped>
-button {
-  color: blue;
-}
-</style>
+    <button class="ml-2">
+      Кнопка v1
+    </button>
+  </div>
+</template>
