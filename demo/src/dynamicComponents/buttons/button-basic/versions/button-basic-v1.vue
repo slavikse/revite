@@ -1,8 +1,11 @@
 <script lang="ts" setup>
-import { onMounted } from 'vue'
+import { defineProps, onMounted } from 'vue'
+import ComponentProps from '../button-basic.props'
+
+const props = defineProps(ComponentProps)
 
 onMounted(() => {
-  console.log('onMounted dynamic button v1')
+  console.log('onMounted dynamic button v1 ', props) // подсказки параметров для props включены
 })
 </script>
 

@@ -9,7 +9,7 @@ export class TestServiceProvider extends ServiceProvider {
     })
 
     ctx.bind(TestServiceContract).to({
-      service: () => import('./versions/MockFetchButtonVersionsService'),
+      service: () => import('./versions/MockFetchVersionsService'),
       reactive: false,
       singleton: true,
     })
@@ -17,11 +17,12 @@ export class TestServiceProvider extends ServiceProvider {
 
   async beforeBoot(ctx: BootContext) {
     const testService = await ctx.resolve(TestServiceContract)
+    // todo рефакторинг
     const buttonBasicPath = '/~/dynamicComponents/buttons/button-basic/versions/button-basic'
 
     testService.registerComponents({
-      buttonDefault: () => import(`${buttonBasicPath}-v1.vue`),
-      buttonGosuslugi: () => import(`${buttonBasicPath}-v2.vue`),
+      ButtonDefault: () => import(`${buttonBasicPath}-v1.vue`),
+      ButtonGosuslugi: () => import(`${buttonBasicPath}-v2.vue`),
     })
   }
 }

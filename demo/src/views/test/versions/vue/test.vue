@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { revite } from 'revite'
-import { onMounted, shallowRef } from 'vue'
+import { shallowRef, onMounted } from 'vue'
 import { TestState } from '/~/views/test'
 // import TitleComponent from './components/title.vue'
-import ButtonBasicComponent from '/~/dynamicComponents/buttons/button-basic/button-basic'
+import ButtonBasicComponent from '/~/dynamicComponents/buttons/button-basic/button-basic.vue'
 
 const state = shallowRef<TestState>()
 
@@ -23,13 +23,17 @@ onMounted(async () => {
       title="test"
       @title-mounted="titleMounted"
     /> -->
+    TEST
 
+    <!-- автоподставка включена -->
     <button-basic-component>
       <template #icon>
-        <base-icon
-          :name="state.getIconName"
-        />
+        <base-icon name="plus" />
       </template>
     </button-basic-component>
+  </div>
+
+  <div v-else>
+    loading...
   </div>
 </template>

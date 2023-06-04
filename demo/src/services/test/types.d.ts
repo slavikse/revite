@@ -6,10 +6,5 @@ declare namespace Service {
     interface Config {
       service: Revite.ImportConstructor<TestServiceContract>
     }
-
-    enum ButtonVersions {
-      ButtonDefault = 'buttonDefault',
-      ButtonGosuslugi = 'buttonGosuslugi',
-    }
   }
 }
