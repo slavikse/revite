@@ -1,9 +1,9 @@
 import type { Component } from 'vue'
-import type { ComponentsTypes, Versions } from './component-versions'
 
-// todo rename DynamicComponentsServiceContract?
+export type ComponentsType = Record<string, () => Component>
+
 export abstract class TestServiceContract {
-  abstract components: ComponentsTypes
-  abstract registerComponents(components: ComponentsTypes): void
-  abstract getComponent(version: Versions): () => Component
+  abstract components: ComponentsType
+  abstract registerComponents(components: ComponentsType): void
+  abstract getComponent(version: string): () => Component
 }

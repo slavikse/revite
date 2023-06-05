@@ -25,7 +25,6 @@ onMounted(async () => {
     /> -->
     TEST
 
-    <!-- автоподставка включена -->
     <button-basic-component>
       <template #icon>
         <base-icon name="plus" />

@@ -3,10 +3,8 @@ import { revite } from 'revite'
 import { defineComponent, shallowRef, defineAsyncComponent } from 'vue'
 import type { Component } from 'vue'
 import { TestServiceContract } from '/~/services/test'
-import ComponentVersions, { Versions } from '/~/services/test/component-versions'
 import PropsAsTypes from './button-basic.props'
 
-// todo можно ли сделать это универсальным?
 export default defineComponent({
   props: PropsAsTypes,
 
@@ -21,7 +19,7 @@ export default defineComponent({
   methods: {
     async getAsyncComponent(): Promise<Component> {
       const dynamicComponents = await revite.resolve(TestServiceContract)
-      const component = dynamicComponents.getComponent(ComponentVersions.ButtonDefault as Versions)
+      const component = dynamicComponents.getComponent('buttonDefault')
 
       return defineAsyncComponent(async () => component())
     },
