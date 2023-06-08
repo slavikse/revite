@@ -6,5 +6,6 @@ export class ViewsPackage extends Package {
     import('/~/views/terms/vue/TermsViewProvider'),
     import('/~/views/notes/VueNotesViewProvider'),
     import('/~/views/report/VueReportViewProvider'),
+    import('/~/views/test/VueTestViewProvider'),
   ]
 }

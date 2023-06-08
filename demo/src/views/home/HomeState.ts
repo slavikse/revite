@@ -1,14 +1,14 @@
 export class HomeState {
-  constructor(private options: {
-    dashboardService: Service.Dashboard.Contract,
-  }) {
+  constructor(
+    readonly dashboardService: Service.Dashboard.Contract,
+  ) {
   }
 
   get links() {
-    return this.options.dashboardService.links
+    return this.dashboardService.links
   }
 
   get widgets() {
-    return this.options.dashboardService.widgets
+    return this.dashboardService.widgets
   }
 }
