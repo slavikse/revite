@@ -10,7 +10,9 @@ export class MockFetchVersionsService extends TestServiceContract {
     })
   }
 
-  getComponent(version: string): () => Component {
+  getComponent(version: string, theme: string): () => Component {
+    console.log('ThemeType ', theme) // todo
+
     return this.components[version]
   }
 }

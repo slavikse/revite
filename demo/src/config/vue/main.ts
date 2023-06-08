@@ -33,8 +33,8 @@ export default defineConfig({
     auth: {
       service: () => import('/~/services/auth/versions/MockLoggedAuthService'),
     } as Service.Auth.Config,
-    test: {
-      service: () => import('/~/services/test/versions/MockFetchButtonVersionsService'),
-    } as Service.Test.Config,
+    // test: {
+    //   service: () => import('/~/services/test/versions/MockFetchButtonVersionsService'),
+    // } as Service.Test.Config,
   },
 })

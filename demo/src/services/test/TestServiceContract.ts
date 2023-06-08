@@ -5,5 +5,5 @@ export type ComponentsType = Record<string, () => Component>
 export abstract class TestServiceContract {
   abstract components: ComponentsType
   abstract registerComponents(components: ComponentsType): void
-  abstract getComponent(version: string): () => Component
+  abstract getComponent(version: string, theme: string): () => Component
 }

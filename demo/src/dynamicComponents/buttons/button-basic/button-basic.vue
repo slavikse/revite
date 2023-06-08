@@ -5,6 +5,9 @@ import type { Component } from 'vue'
 import { TestServiceContract } from '/~/services/test'
 import PropsAsTypes from './button-basic.props'
 
+// todo импортирован от куда то
+const theme = 'default'
+
 export default defineComponent({
   props: PropsAsTypes,
 
@@ -19,7 +22,7 @@ export default defineComponent({
   methods: {
     async getAsyncComponent(): Promise<Component> {
       const dynamicComponents = await revite.resolve(TestServiceContract)
-      const component = dynamicComponents.getComponent('buttonDefault')
+      const component = dynamicComponents.getComponent('buttonDefault', theme)
 
       return defineAsyncComponent(async () => component())
     },

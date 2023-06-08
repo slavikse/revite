@@ -17,12 +17,10 @@ export class TestServiceProvider extends ServiceProvider {
 
   async beforeBoot(ctx: BootContext) {
     const testService = await ctx.resolve(TestServiceContract)
-    const buttonBasicPath = '/~/dynamicComponents/buttons/button-basic/versions/button-basic'
 
-    // todo как это разрезолвить?
     testService.registerComponents({
-      buttonDefault: () => import(`${buttonBasicPath}-v1.vue`),
-      buttonGosuslugi: () => import(`${buttonBasicPath}-v2.vue`),
+      buttonDefault: () => import('/~/dynamicComponents/buttons/button-basic/versions/button-basic-v1.vue'),
+      buttonGosuslugi: () => import('/~/dynamicComponents/buttons/button-basic/versions/button-basic-v2.vue'),
     })
   }
 }
